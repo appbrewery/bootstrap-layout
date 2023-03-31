@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bootstrap Layout Exercises</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
+  <style>
+    body {
+      margin-top: 50px;
+      background-color: #f0f0f0;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .flex-container {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: start;
+      margin-top: 50px;
+      border-bottom: 50px solid transparent;
+    }
+
+    textarea {
+      width: 100%;
+      min-height: 150px;
+      resize: vertical;
+      font-family: monospace;
+      background-color: #ddd;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #4285f4;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .parent {
+      width: 80%;
+      background-color: #ddd;
+      padding: 20px;
+      margin: 2rem;
+    }
+
+    .child {
+      background-color: seagreen;
+      color: white;
+      font-size: 18px;
+      padding: 20px;
+      border: 2px solid white;
+    }
+
+    .test-parent {
+      width: 80%;
+      background-color: #ddd;
+      padding: 20px;
+      margin: 2rem;
+    }
+
+    .test-parent>*>* {
+      background-color: darkviolet;
+      color: white;
+      font-size: 18px;
+      padding: 20px;
+      border: 2px solid goldenrod;
+    }
+
+    .test2 {
+      background-color: salmon;
+      color: white;
+      font-size: 18px;
+      padding: 20px;
+      border: 2px solid white;
+    }
+
+    .solution2>*>* {
+      background-color: cadetblue;
+      color: white;
+      font-size: 18px;
+      padding: 20px;
+      border: 2px solid white;
+    }
+
+    .test3 {
+      background-color: royalblue;
+      color: white;
+      font-size: 18px;
+      padding: 20px;
+      border: 2px solid white;
+    }
+
+    .solution3>*>* {
+      background-color: darkslategrey;
+      color: white;
+      font-size: 18px;
+      padding: 20px;
+      border: 2px solid white;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Bootstrap Layout Exercise</h1>
+
+  <div class="flex-container">
+    <h2>Exercise 1</h2>
+    <div class="container parent">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 child">50% desktop, 100% mobile</div>
+        <div class="col-lg-6 col-sm-12 child">50% desktop, 100% mobile</div>
+      </div>
+    </div>
+    <div class="container test-parent" id="test1">
+      <div class="row">
+        <div class="">50% desktop, 100% mobile</div>
+        <div class="">50% desktop, 100% mobile</div>
+      </div>
+    </div>
+    <div class="container">
+      <textarea id="test-1-code" placeholder="Write your CSS code here..." rows="5">
+<!-- Modify the HTML code for the purple boxes below so it behaves like the green ones. -->
+  <div class="row">
+    <div class="">50% desktop, 100% mobile</div>
+    <div class="">50% desktop, 100% mobile</div>
+  </div>
+  
+    </textarea>
+    </div>
+
+    <button onclick="applyTest1()">Apply Changes</button>
+
+    <script>
+      function applyTest1() {
+        const userCss = document.getElementById('test-1-code').value;
+        const test1 = document.getElementById('test1');
+        test1.innerHTML = userCss;
+      }
+    </script>
+  </div>
+
+  <div class="flex-container">
+    <h2>Exercise 2</h2>
+    <div class="container parent">
+      <div class="row">
+        <div class="col-lg-6 col-sm-12 col-10 child test2">Column 1</div>
+        <div class="col-lg-3 col-sm-6 col-10 child test2">Column 2</div>
+        <div class="col-lg-3 col-sm-6 col-10 child test2">Column 3</div>
+      </div>
+    </div>
+    <div class="container test-parent  solution2" id="test2">
+      <div class="row">
+        <div class="">Column 1</div>
+        <div class="">Column 2</div>
+        <div class="">Column 3</div>
+      </div>
+    </div>
+    <div class="container">
+      <textarea id="test-2-code" rows="5">
+  <!-- Modify the HTML below to make the blue boxes behave like the red ones. -->
+  <div class="row">
+    <div class="">Column 1</div>
+    <div class="">Column 2</div>
+    <div class="">Column 3</div>
+  </div>
+      
+        </textarea>
+    </div>
+
+    <button onclick="applyTest2()">Apply Changes</button>
+
+    <script>
+      function applyTest2() {
+        const userCss = document.getElementById('test-2-code').value;
+        const test1 = document.getElementById('test2');
+        test1.innerHTML = userCss;
+      }
+    </script>
+  </div>
+  <div class="flex-container">
+    <h2>Exercise 3</h2>
+    <div class="container parent">
+      <div class="row">
+        <div class="col-xxl-1 col-xl-2 col-lg-4 col-md-6 col-sm-12 child test3">Column 1</div>
+        <div class="col-xxl-11 col-xl-10 col-lg-8 col-md-6 col-sm-12 child test3">Column 2</div>
+      </div>
+    </div>
+    <div class="container test-parent  solution3" id="test3">
+      <div class="row">
+        <div class="">Column 1</div>
+        <div class="">Column 2</div>
+      </div>
+    </div>
+    <div class="container">
+      <textarea id="test-3-code" rows="5">
+      <!-- Modify the HTML below to make the indigo boxes behave like the blue ones. -->
+      <div class="row">
+        <div class="">Column 1</div>
+        <div class="">Column 2</div>
+      </div>
+          
+            </textarea>
+    </div>
+
+    <button onclick="applyTest3()">Apply Changes</button>
+
+    <script>
+      function applyTest3() {
+        const userCss = document.getElementById('test-3-code').value;
+        const test1 = document.getElementById('test3');
+        test1.innerHTML = userCss;
+      }
+    </script>
+  </div>
+</body>
+
+</html>
